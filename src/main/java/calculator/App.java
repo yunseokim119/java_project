@@ -19,4 +19,4 @@ public class App {
 
         System.out.printf("operator = " + operator);
     }
-}
+}:

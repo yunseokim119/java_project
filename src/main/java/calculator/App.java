@@ -9,7 +9,8 @@ public class App {
         // 요구사항 1. Scanner를 사용하여 양의 정수 2개(0 포함)를 전달 받을 수 있습니다.
 
         int[] results = new int[10];
-        int resultCount = 0;
+        int resultCount = 0; // 요구사항 5
+        int starIndex = 0; // 요구사항 6
 
         while (true) {
             System.out.print("첫 번째 숫자를 입력하세요: ");
@@ -38,18 +39,18 @@ public class App {
             } else if (operator == '%') {
                 result = num1 % num2;
             }
-            System.out.println("결과: " + result);
 
             if (resultCount < results.length) {
                 results[resultCount] = result;
                 resultCount++;
-                System.out.println("결과: " + result);
             } else {
-                System.out.println("결과 저장 공간이 부족합니다. 프로그램을 종료합니다.");
-                break;
+                results[starIndex] = result;
+                starIndex = (starIndex + 1) % results.length;
             }
+            // 요구사항 6. 연산 결과가 10개를 초과하는 경우 가장 먼저 저장된 결과를 삭제하고 새로운 연산 결과가 저장될 수 있도록 소스 코드를 수정합니다.
+            System.out.println("결과: " + result);
 
-            System.out.println("현재까지의 결과:");
+            System.out.println("현재까지의 결과");
             for (int i = 0; i < resultCount; i++) {
                 System.out.println("결과 " + (i + 1) + ": " + results[i]);
             }
@@ -58,6 +59,7 @@ public class App {
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             if (sc.next().equals("exit") == true) { // 문자열을 비교할 때 등가비교연산자 == 이 아닌 .equals()메소드를 사용
                 System.exit(0);
+                break;
             }
             /* exit을 입력 받으면 반복 종료 */
         }

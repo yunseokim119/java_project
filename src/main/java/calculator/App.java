@@ -9,8 +9,10 @@ public class App {
         // 요구사항 1. Scanner를 사용하여 양의 정수 2개(0 포함)를 전달 받을 수 있습니다.
 
         int[] results = new int[10];
+
         int resultCount = 0; // 요구사항 5
         int starIndex = 0; // 요구사항 6
+
 
         while (true) {
             System.out.print("첫 번째 숫자를 입력하세요: ");
@@ -51,6 +53,7 @@ public class App {
             System.out.println("결과: " + result);
 
             System.out.println("현재까지의 결과");
+
             for (int i = 0; i < resultCount; i++) {
                 System.out.println("결과 " + (i + 1) + ": " + results[i]);
             }

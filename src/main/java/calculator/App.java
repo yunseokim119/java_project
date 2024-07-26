@@ -42,19 +42,17 @@ public class App {
             results.add(result);
             System.out.println("결과: " + result);
 
-            System.out.println("현재까지의 결과");
-
-            for (int i = 0; i < results.size(); i++) {
-                System.out.println("결과 " + (i + 1) + ": " + results.get(i));
-            }
-
-            //요구사항 4. 반복문을 사용하여 반복의 종료를 알려주는 “exit” 문자열을 입력하기 전까지 무한으로 계산을 진행할 수 있도록 소스 코드를 수정합니다.
+            //요구사항 7. “remove”라는 문자열을 입력받으면 가장 먼저 저장된 결과가 삭제될 수 있도록 구현합니다.
             System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
 
+            //요구사항 8. “inquiry”라는 문자열이 입력되면 저장된 연산 결과 전부를 출력합니다.
+            System.out.println("inquiry 입력 시 모든 결과 조회");
+
+            //요구사항 4. 반복문을 사용하여 반복의 종료를 알려주는 “exit” 문자열을 입력하기 전까지 무한으로 계산을 진행할 수 있도록 소스 코드를 수정합니다.
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
             String input = sc.next();
             if (input.equals("exit")) {
-                System.exit(0);
+                System.out.println("프로그램을 종료합니다.");
                 break;
             } else if (input.equals("remove")) {
                 if (!results.isEmpty()) {
@@ -62,6 +60,11 @@ public class App {
                     System.out.println("가장 먼저 저장된 결과가 삭제되었습니다.");
                 } else {
                     System.out.println("삭제할 결과가 없습니다.");
+                }
+            } else if (input.equals("inquiry")) {
+                System.out.println("저장된 모든 결과:");
+                for (int i = 0; i < results.size(); i++) {
+                    System.out.println("결과 " + (i + 1) + ": " + results.get(i));
                 }
             }
         }

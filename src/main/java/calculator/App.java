@@ -27,16 +27,36 @@ public class App {
 
             //요구사항 3. 입력받은 양의 정수 2개와 사칙연산 기호를 사용하여 연산을 진행한 후 결과값을 출력합니다.
             int result = 0;
-            if (operator == '+') {
-                result = num1 + num2;
-            } else if (operator == '-') {
-                result = num1 - num2;
-            } else if (operator == '*') {
-                result = num1 * num2;
-            } else if (operator == '/') {
-                result = num1 / num2;
-            } else if (operator == '%') {
-                result = num1 % num2;
+
+            switch (operator) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    if (num2 != 0) {
+                        result = num1 / num2;
+                    } else {
+                        System.out.println("0으로 나눌 수 없습니다.");
+                        continue;
+                    }
+                    break;
+                case '%':
+                    if (num2 != 0) {
+                        result = num1 % num2;
+                    } else {
+                        System.out.println("0으로 나눌 수 없습니다.");
+                        continue;
+                    }
+                    break;
+                default:
+                    System.out.println("유효하지 않은 연산자입니다.");
+                    continue;
             }
 
             results.add(result);

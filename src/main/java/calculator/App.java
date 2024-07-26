@@ -1,5 +1,6 @@
 package calculator;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
@@ -8,11 +9,7 @@ public class App {
         Scanner sc = new Scanner(System.in);
         // 요구사항 1. Scanner를 사용하여 양의 정수 2개(0 포함)를 전달 받을 수 있습니다.
 
-        int[] results = new int[10];
-
-        int resultCount = 0; // 요구사항 5
-        int starIndex = 0; // 요구사항 6
-
+        ArrayList<Integer> results = new ArrayList<>();
 
         while (true) {
             System.out.print("첫 번째 숫자를 입력하세요: ");
@@ -42,29 +39,31 @@ public class App {
                 result = num1 % num2;
             }
 
-            if (resultCount < results.length) {
-                results[resultCount] = result;
-                resultCount++;
-            } else {
-                results[starIndex] = result;
-                starIndex = (starIndex + 1) % results.length;
-            }
-            // 요구사항 6. 연산 결과가 10개를 초과하는 경우 가장 먼저 저장된 결과를 삭제하고 새로운 연산 결과가 저장될 수 있도록 소스 코드를 수정합니다.
+            results.add(result);
             System.out.println("결과: " + result);
 
             System.out.println("현재까지의 결과");
 
-            for (int i = 0; i < resultCount; i++) {
-                System.out.println("결과 " + (i + 1) + ": " + results[i]);
+            for (int i = 0; i < results.size(); i++) {
+                System.out.println("결과 " + (i + 1) + ": " + results.get(i));
             }
 
             //요구사항 4. 반복문을 사용하여 반복의 종료를 알려주는 “exit” 문자열을 입력하기 전까지 무한으로 계산을 진행할 수 있도록 소스 코드를 수정합니다.
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
-            if (sc.next().equals("exit") == true) { // 문자열을 비교할 때 등가비교연산자 == 이 아닌 .equals()메소드를 사용
+            String input = sc.next();
+            if (input.equals("exit")) {
                 System.exit(0);
                 break;
+            } else if (input.equals("remove")) {
+                if (!results.isEmpty()) {
+                    results.remove(0);
+                    System.out.println("가장 먼저 저장된 결과가 삭제되었습니다.");
+                } else {
+                    System.out.println("삭제할 결과가 없습니다.");
+                }
             }
-            /* exit을 입력 받으면 반복 종료 */
         }
         sc.close();
     }

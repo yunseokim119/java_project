@@ -10,7 +10,7 @@ public class Calculator {
 
     // 생성자
     public Calculator() {
-        results = new ArrayList<>();
+        results = new ArrayList<>(); //Level2의 요구사항 6.
     }
 
     // 양의 정수 2개와 연산 기호를 매개변수로 받아 연산을 수행하고 결과 값을 반환하는 메서드

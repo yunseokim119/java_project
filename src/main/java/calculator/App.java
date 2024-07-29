@@ -12,8 +12,6 @@ public class App {
         Calculator calculator = new Calculator();
         // Level2의 두 번쩨 요구사항
 
-        List<Integer> results = calculator.getResults();
-
         while (true) {
             System.out.print("첫 번째 숫자를 입력하세요: ");
             // Scanner를 사용하여 양의 정수를 입력받고 적합한 타입의 변수에 저장합니다.
@@ -46,17 +44,17 @@ public class App {
                 System.out.println("프로그램을 종료합니다.");
                 break;
             } else if (input.equals("remove")) {
-                if (!results.isEmpty()) {
-                    results.remove(0);
-                    System.out.println("가장 먼저 저장된 결과가 삭제되었습니다.");
-                } else {
-                    System.out.println("삭제할 결과가 없습니다.");
-                }
+                calculator.removeFirstResult(); // 가장 먼저 저장된 결과 삭제
+                System.out.println("가장 먼저 저장된 결과가 삭제되었습니다.");
             } else if (input.equals("inquiry")) {
-                results = calculator.getResults();
+                List<Integer> results = calculator.getResults(); // 최신 결과를 가져옴
                 System.out.println("저장된 모든 결과:");
-                for (int i = 0; i < results.size(); i++) {
-                    System.out.println("결과 " + (i + 1) + ": " + results.get(i));
+                if (results.isEmpty()) {
+                    System.out.println("저장된 결과가 없습니다.");
+                } else {
+                    for (int i = 0; i < results.size(); i++) {
+                        System.out.println("결과 " + (i + 1) + ": " + results.get(i));
+                    }
                 }
             } else {
                 System.out.println("유효하지 않은 입력입니다.");

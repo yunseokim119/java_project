@@ -46,7 +46,7 @@ public class Calculator {
 
     // 연산 결과의 불변 사본을 반환하는 메서드
     public List<Integer> getResults() {
-        return new ArrayList<>(results);
+        return Collections.unmodifiableList(results);
     }
 
     public void setResults(List<Integer> results) {

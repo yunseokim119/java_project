@@ -11,6 +11,8 @@ public class App {
 
         ArrayList<Integer> results = new ArrayList<>();
 
+        Calculator calculator = new Calculator();
+
         while (true) {
             System.out.print("첫 번째 숫자를 입력하세요: ");
             // Scanner를 사용하여 양의 정수를 입력받고 적합한 타입의 변수에 저장합니다.

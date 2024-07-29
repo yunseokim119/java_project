@@ -12,6 +12,7 @@ public class App {
         ArrayList<Integer> results = new ArrayList<>();
 
         Calculator calculator = new Calculator();
+        // Level2의 두 번쩨 요구사항
 
         while (true) {
             System.out.print("첫 번째 숫자를 입력하세요: ");

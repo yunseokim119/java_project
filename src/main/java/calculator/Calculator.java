@@ -1,6 +1,7 @@
 package calculator;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Calculator {
@@ -45,6 +46,10 @@ public class Calculator {
 
     // 연산 결과를 반환하는 메서드
     public List<Integer> getResults() {
-        return results;
+        return Collections.unmodifiableList(results);
+    }
+
+    public void setResults(List<Integer> results) {
+        this.results = results;
     }
 }

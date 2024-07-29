@@ -44,12 +44,19 @@ public class Calculator {
         return result;
     }
 
-    // 연산 결과를 반환하는 메서드
+    // 연산 결과의 불변 사본을 반환하는 메서드
     public List<Integer> getResults() {
-        return Collections.unmodifiableList(results);
+        return new ArrayList<>(results);
     }
 
     public void setResults(List<Integer> results) {
         this.results = results;
+    }
+
+    // 가장 먼저 저장된 연산 결과를 삭제하는 메서드
+    public void removeFirstResult() {
+        if (!results.isEmpty()) {
+            results.remove(0);
+        }
     }
 }

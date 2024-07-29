@@ -1,6 +1,5 @@
 package calculator;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -32,7 +31,7 @@ public class App {
             try {
                 // Calculator 객체를 사용하여 계산 수행
                 int result = calculator.calculate(num1, num2, operator);
-                System.out.println("결과 ㅣ " + result);
+                System.out.println("결과 : " + result);
             } catch (OneException e) {
                 System.out.println("잘못된 연산입니다 : " + e.getMessage());
                 continue;
@@ -54,6 +53,7 @@ public class App {
                     System.out.println("삭제할 결과가 없습니다.");
                 }
             } else if (input.equals("inquiry")) {
+                results = calculator.getResults();
                 System.out.println("저장된 모든 결과:");
                 for (int i = 0; i < results.size(); i++) {
                     System.out.println("결과 " + (i + 1) + ": " + results.get(i));

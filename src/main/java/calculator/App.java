@@ -10,7 +10,7 @@ public class App {
         CircleCalculator circleCalculator = new CircleCalculator();
 
         while (true) {
-            System.out.println("명령어를 입력하세요:");
+            System.out.println("명령어를 입력하세요");
             System.out.println("calc: 사칙연산");
             System.out.println("circle: 원의 넓이 계산");
             System.out.println("exit: 프로그램 종료");

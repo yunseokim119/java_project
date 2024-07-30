@@ -2,6 +2,10 @@ package calculator;
 
 public class OneException extends Exception {
     public OneException() {
-        super("잘못 입력하였습니다.");
+        super();
+    }
+
+    public OneException(String message) {
+        super(message);
     }
 }
